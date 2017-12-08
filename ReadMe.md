@@ -1,14 +1,8 @@
- My English isn't so good so feel free to ask me if there is anything unclear.
-
-> A website you referred to
-> https://gist.github.com/smitshilu/53cf9ff0fd6cdb64cca69a7e2827ed0f
-> https://github.com/nathanielatom/tensorflow/releases/tag/v1.4.0-mac
-
 ### HardWare
 
 - MacBook Pro (Retina, 13-inch, Early 2015)
 - eGFX Breakaway Box (eGPU Expansion System)
-- nVidia GeForce 1060
+- NVIDIA GeForce 1060
 
 ## SoftWare
 
@@ -22,6 +16,11 @@
 - HomeBrew
 - Bazel
 - Anaconda
+
+> I referred to the following description.<br/>
+> https://gist.github.com/smitshilu/53cf9ff0fd6cdb64cca69a7e2827ed0f
+> https://github.com/nathanielatom/tensorflow/releases/tag/v1.4.0-mac
+
 
 ## SIP
 
@@ -443,4 +442,5 @@ Epoch 1/10
 ........
 ```
 
+My English isn't so good so feel free to ask me if there is anything unclear.
 Thank you.
