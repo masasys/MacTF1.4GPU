@@ -35,10 +35,16 @@ The following method will lower your security level.
 After shutting down once, hold down "Command + R" and start up to enter Recovery mode.
 Execute "csrutil disable" in recovery mode and start up again as usual.
 
-## eGPU recognized
+## Set up eGPU.
 
 > Please try this.
 > https://egpu.io/forums/mac-setup/wip-nvidia-egpu-support-for-high-sierra/
+
+#### If it does not work, try the following points.
+
+- If the startup screen is blacked out, connect the eGPU to the operation and log out once after booting the OS.When you come to the login screen, you probably should see the eGPU display as well.
+- Make sure that the Mac OS version of "Download NVIDIAEGPUSupport >>" table matches the version of NVidia driver.
+
 
 ## Compile Tensorflow from source.
 
