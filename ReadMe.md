@@ -11,7 +11,7 @@
 - Nvidia Web Driver
 - XcodeCommandLineTool 8.3.2
 - cuda 9.0
-- cudnn 7
+- cudnn 7.0.4
 
 - HomeBrew
 - Bazel
@@ -103,12 +103,14 @@ brew cask install nvidia-cuda
 brew cask info nvidia-cuda
 ```
 
+![install nvidia-cuda](img/screen002.png)
+
 #### After The Install
 
 Installing CUDA using HomeBrew will install the old version.
 Let's keep it up-to-date with System Preferences.
 
-### cuDNN
+![install nvidia-cuda](img/screen003.png)
 
 #### Sign in to Nvidia's website and download cuDNN.
 
@@ -116,6 +118,12 @@ Let's keep it up-to-date with System Preferences.
 > https://developer.nvidia.com/accelerated-computing-developer
 > Download to cudnn.
 > https://developer.nvidia.com/cudnn
+
+##### use cuDNN version.
+
+As of December 2017, the version of duDNN that can be used is up to 7.0.4.
+
+![cuDnn](img/screen001.png)
 
 After downloading, it thinks that something like `cudnn-9.0-osx-x64-v7.tgz` was downloaded, so decompress it.
 
@@ -133,7 +141,7 @@ I think the file has been decompressed as follows.
 ```
 
 Copy the file as follows from Terminal.
-It is assumed that it is downloaded to the "download" folder.
+It is assumed that it is downloaded to the "Downloads" folder.
 
 ```
 sudo cp ~/Downloads/cuda/include/cudnn.h /usr/local/cuda/include/
@@ -142,7 +150,7 @@ sudo cp ~/Downloads/cuda/lib/libcudnn* /usr/local/cuda/lib/
 
 ### .bash_profile
 
-Edit to ".bash_profile"
+Edit to ".bash_profile".
 Please change {UserName} to your user name.
 
 ```
@@ -174,11 +182,13 @@ It takes a couple of hours in one compile.
 ### Install the Xdoce command line tools 
 
 Install Xcode command line tools separately from Xcode.
-Install version to 8.3.2 or 8.2
+Install version to 8.3.2 or 8.2.(9.X is not supported.)
 
 > https://developer.apple.com/download/more/
 
 But although software updates will prompt you to install the latest version of Xcode Command Line Tools, ignore them.
+
+![install nvidia-cuda](img/screen004.png)
 
 #### Change The Clang
 
@@ -265,18 +275,20 @@ Use --verbose_failures to see the command lines of failed build steps.
 ```
 
 Back up to `(Tensorflow's Git clone destination)/third_party/gpus/cuda/BUILD.tpl`.
-Remove the following one line.
+And 
+Remove the following one line of the original file.
 Perhaps it is listed on the line number 112.
 
 ```
 linkopts = [“-lgomp”]
 ```
 
+![install nvidia-cuda](img/screen005.png)
+
 #### Caution
 
 In the case of a virtual environment, packages in the root environment take precedence, so you should not install "Tensorflow" or "keras" in the root environment.
 However, it is good when assuming use in the root environment.
-
 
 ### Symbolic link
 
@@ -389,7 +401,7 @@ Configuration finished
 bazel build --config=cuda --config=opt --action_env PATH --action_env LD_LIBRARY_PATH --action_env DYLD_LIBRARY_PATH //tensorflow/tools/pip_package:build_pip_package
 ```
 
-#### to Package.
+#### to Create Package.
 
 ```
 bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
